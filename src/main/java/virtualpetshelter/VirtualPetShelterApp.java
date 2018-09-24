@@ -19,11 +19,8 @@ public class VirtualPetShelterApp {
 		String choice;
 		do {
 			shelter.tick(2);
-			// print information on pets
-			for(VirtualPet current : shelter.pets.values()) {
-				System.out.println(current.getName() + " - " + current.getDesc());
-				System.out.println("\tHunger: " + current.getHunger() + " Thirst: " + current.getThirst() + " Boredom: " + current.getBoredom() + "\n");
-			}
+			
+			showAllPets(shelter);
 			
 			// menu
 			System.out.println("What would you like to do?\n");
@@ -73,6 +70,13 @@ public class VirtualPetShelterApp {
 		System.out.println("Thanks for stopping by.");
 		
 		in.close();
+	}
+
+	private static void showAllPets(VirtualPetShelter shelter) {
+		for(VirtualPet current : shelter.pets.values()) {
+			System.out.println(current.getName() + " - " + current.getDesc());
+			System.out.println("\tHunger: " + current.getHunger() + " Thirst: " + current.getThirst() + " Boredom: " + current.getBoredom() + "\n");
+		}
 	}
 
 }

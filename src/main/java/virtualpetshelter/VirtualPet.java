@@ -27,6 +27,8 @@ public class VirtualPet {
 			hunger++;
 			thirst++;
 			boredom++;
+			
+			randomizeTickChange();
 
 			hunger = stayInLimits(hunger);
 			thirst = stayInLimits(thirst);
@@ -34,6 +36,7 @@ public class VirtualPet {
 		}
 
 		// checks if cat is going to rampage
+		//TODO not currently being used
 		int maxed = 0;
 		if (hunger == 50) {
 			maxed++;
@@ -49,6 +52,17 @@ public class VirtualPet {
 			return true;
 		}
 		return false;
+	}
+
+	private void randomizeTickChange() {
+		int randomStatChange = (int) (Math.random()*6+1);
+		if(randomStatChange==1) {
+			hunger += 2;
+		} else if(randomStatChange==2) {
+			thirst += 2;
+		} else if(randomStatChange==3) {
+			boredom += 2;
+		}
 	}
 
 	public void feed() {
