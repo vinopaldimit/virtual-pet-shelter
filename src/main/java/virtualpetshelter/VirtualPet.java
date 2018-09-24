@@ -58,6 +58,8 @@ public class VirtualPet {
 
 	public void play() {
 		boredom -= 15;
+		hunger += 5;
+		thirst += 5;
 	}
 
 	public void giveWater() {
